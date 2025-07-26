@@ -1,24 +1,29 @@
-package com.example.springboot_backend.Entities;
-
+package com.example.springboot_backend.entities; // ✅ Java package names should be lowercase
 
 import jakarta.persistence.*;
 
 @Entity
-@Table
-public class Users {
+@Table(name = "users") // ✅ Explicit table name is good practice
+public class User { // ✅ Renamed from `Users` to `User` (Java class names should be singular)
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private  int id;
-    @Column
+    @Column(name = "id") // ✅ Added column name explicitly for clarity (optional but recommended)
+    private int id;
+
+    @Column(name = "name") // ✅ Makes DB mapping clear
     private String name;
-    @Column
+
+    @Column(name = "email")
     private String email;
-    @Column
+
+    @Column(name = "password")
     private String password;
-    @Column
+
+    @Column(name = "city")
     private String city;
+
+    // ✅ Getter and setter methods follow standard naming conventions (no change needed)
 
     public int getId() {
         return id;
