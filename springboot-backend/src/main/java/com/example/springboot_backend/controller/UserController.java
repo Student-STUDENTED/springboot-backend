@@ -51,7 +51,7 @@ public class UserController { // ✅ Renamed from MyController → UserControlle
 
     // ✅ DELETE /users/{id} – delete user
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteUser(@PathVariable int id) {
+    public ResponseEntity<String> deleteUser(@PathVariable("id") int id) {
         boolean isDeleted = userService.deleteUser(id);
         if (isDeleted) {
             return ResponseEntity.ok("User deleted successfully with id: " + id);

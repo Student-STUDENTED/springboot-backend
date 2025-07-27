@@ -20,8 +20,10 @@ public class User { // ✅ Renamed from `Users` to `User` (Java class names shou
     @Column(name = "password")
     private String password;
 
-    @Column(name = "city")
-    private String city;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
 
     // ✅ Getter and setter methods follow standard naming conventions (no change needed)
 
@@ -57,11 +59,11 @@ public class User { // ✅ Renamed from `Users` to `User` (Java class names shou
         this.password = password;
     }
 
-    public String getCity() {
-        return city;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
